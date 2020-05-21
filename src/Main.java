@@ -56,7 +56,15 @@ public class Main {
         //at the end, output a full to README.md of the sorted doc components
         Collections.sort(arr);
         PrintWriter pw = new PrintWriter(new File("README.md"));
-        pw.println("# DOCUMENTATION");
+        try {
+            Scanner sc3 = new Scanner(new File("defaultheader.txt"));
+            while (sc3.hasNextLine())
+                pw.println(sc3.nextLine()+"\n");
+            sc3.close();
+            pw.println("\n\n\n");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
         for (DocComponent comp : arr) {
             pw.println(comp);
         }
@@ -131,7 +139,8 @@ class DocComponent implements Comparable<DocComponent>{
         generateText();
 
         StringBuilder output = new StringBuilder();
-        output.append(anchor+"\n");
+
+        //output.append(anchor+"\n");
         output.append(header+"\n");
         output.append(code+"\n\n");
         output.append(description+"\n\n");

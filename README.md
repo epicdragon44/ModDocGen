@@ -1,5 +1,23 @@
-# DOCUMENTATION
-(##MainPanel)
+# Welcome to Modulus
+
+
+
+This is the code for the Modulus web app, which you can view at http://app.modulusplatform.site/
+
+
+
+We have a separate repository for the landing page: http://modulusplatform.site/
+
+You can view that code at https://github.com/epicdragon44/moduluswebsite.
+
+
+
+# DOCUMENTATION BELOW
+
+
+
+
+
 ## MainPanel
 ```javascript
 class MainPanel extends React.Component 
@@ -28,7 +46,6 @@ Contains:
 
 
 
-(##ModuleItem)
 ## ModuleItem
 ```javascript
 function ModuleItem(props) 
@@ -45,7 +62,6 @@ Contains:
 
 
 
-(##Container)
 ## Container
 ```javascript
 class Container extends React.Component 
@@ -62,7 +78,6 @@ Contains:
 
 
 
-(##Sidebar)
 ## Sidebar
 ```javascript
 class Sidebar extends React.Component 
@@ -78,7 +93,6 @@ Contains:
 
 
 
-(##ModuleContentItem)
 ## ModuleContentItem
 ```javascript
 class ModuleContentItem extends React.Component 
@@ -94,7 +108,6 @@ Contains:
 
 
 
-(##MyModal)
 ## MyModal
 ```javascript
 class MyModal extends React.Component 
@@ -109,7 +122,6 @@ Contains:
 
 
 
-(##CourseListItem)
 ## CourseListItem
 ```javascript
 function CourseListItem(props) 
@@ -123,7 +135,6 @@ Contains:
 
 
 
-(##AddCourseItem)
 ## AddCourseItem
 ```javascript
 function AddCourseItem(props) 
@@ -137,7 +148,6 @@ Contains:
 
 
 
-(##CreateCourseItem)
 ## CreateCourseItem
 ```javascript
 function CreateCourseItem(props) 
@@ -151,7 +161,6 @@ Contains:
 
 
 
-(##AddModuleContentItemItem)
 ## AddModuleContentItemItem
 ```javascript
 class AddModuleContentItemItem extends React.Component 
@@ -165,7 +174,6 @@ Contains:
 
 
 
-(##CreateCoursePanel)
 ## CreateCoursePanel
 ```javascript
 function CreateCoursePanel(props) 
@@ -179,7 +187,6 @@ Contains:
 
 
 
-(##AddCoursePanel)
 ## AddCoursePanel
 ```javascript
 function AddCoursePanel(props) 
@@ -193,7 +200,6 @@ Contains:
 
 
 
-(##Home)
 ## Home
 ```javascript
 class Home extends React.Component 
@@ -207,7 +213,6 @@ Contains:
 
 
 
-(##codeToName)
 ## codeToName
 ```javascript
 function codeToName(classcode) 
@@ -220,7 +225,6 @@ Contains:
 
 
 
-(##currentUserIsAdmin)
 ## currentUserIsAdmin
 ```javascript
 function currentUserIsAdmin() 
@@ -233,7 +237,6 @@ Contains:
 
 
 
-(##isUserBlocked)
 ## isUserBlocked
 ```javascript
 function isUserBlocked(username, activeCourse) 
@@ -246,7 +249,6 @@ Contains:
 
 
 
-(##RenameModule)
 ## RenameModule
 ```javascript
 class RenameModule extends React.Component 
@@ -259,7 +261,6 @@ Contains:
 
 
 
-(##DeleteModule)
 ## DeleteModule
 ```javascript
 class DeleteModule extends React.Component 
@@ -272,7 +273,6 @@ Contains:
 
 
 
-(##RenameItem)
 ## RenameItem
 ```javascript
 class RenameItem extends React.Component 
@@ -285,7 +285,6 @@ Contains:
 
 
 
-(##DeleteItem)
 ## DeleteItem
 ```javascript
 class DeleteItem extends React.Component 
@@ -298,7 +297,6 @@ Contains:
 
 
 
-(##AddModuleItem)
 ## AddModuleItem
 ```javascript
 class AddModuleItem extends React.Component 
@@ -311,7 +309,6 @@ Contains:
 
 
 
-(##VarkProfile)
 ## VarkProfile
 ```javascript
 function VarkProfile(props) 
@@ -324,7 +321,6 @@ Contains:
 
 
 
-(##Select)
 ## Select
 ```javascript
 class Select extends React.PureComponent 
@@ -337,7 +333,6 @@ Contains:
 
 
 
-(##CreateForm)
 ## CreateForm
 ```javascript
 class CreateForm extends React.Component 
@@ -350,7 +345,6 @@ Contains:
 
 
 
-(##NameForm)
 ## NameForm
 ```javascript
 class NameForm extends React.Component 
