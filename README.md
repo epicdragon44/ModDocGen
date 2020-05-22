@@ -20,13 +20,13 @@ You can view that code at https://github.com/epicdragon44/moduluswebsite.
 
 
 
-## Flowchart of components (may be outdated)
+## Flowchart of components
 
 https://app.lucidchart.com/documents/view/12e9a358-6152-4630-9d61-8f33eee10b23/0_0
 
 
 
-# Component Documentation (generated dynamically from comments)
+# Component Documentation
 
 
 
