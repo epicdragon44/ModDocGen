@@ -156,16 +156,16 @@ class DocComponent implements Comparable<DocComponent>{
         output.append(typeText+"\n");
         output.append(code+"\n\n");
         output.append(description+"\n\n");
-        output.append("**Input: **");
+        output.append("**Input:**");
         for (String s : this.input) {
             output.append(" " + s.trim());
         }
-        output.append("\n");
-        output.append("**Output**");
+        output.append("\n\n");
+        output.append("**Output:**");
         for (String s : this.output) {
             output.append(" " + s.trim());
         }
-        output.append("\n");
+        output.append("\n\n");
         if (subcomponentlinks.length>0)
             output.append("Contains: " + "\n");
         for (String s : subcomponentlinks) {
