@@ -16,14 +16,17 @@ public class Main {
         while (sc.hasNextLine()) {
             String line = sc.nextLine();
             if (line.contains("DOC")) { //activate the documentation
+                String[] input = sc.nextLine().substring(8).split(",");
+                String[] output = sc.nextLine().substring(9).split(",");
+
                 String nextLine = sc.nextLine().replaceAll("\\{", "");
                 String description = line.split(":")[line.split(":").length-1].trim();
                 String name = getName(nextLine).trim();
                 if (line.contains("Component:")) { //the item here is a component
-                    arr.add(new DocComponent(name, description, nextLine,true));
+                    arr.add(new DocComponent(name, description, nextLine,true, input, output));
                 }
                 if (line.contains("Function:")) { //the item here is a function
-                    arr.add(new DocComponent(name, description, nextLine,false));
+                    arr.add(new DocComponent(name, description, nextLine,false, input, output));
                 }
             }
         }
@@ -34,6 +37,9 @@ public class Main {
         while (sc2.hasNextLine()) {
             String line = sc2.nextLine();
             if (line.contains("DOC")) { //activate the documentation
+                String[] input = sc2.nextLine().substring(8).split(",");
+                String[] output = sc2.nextLine().substring(9).split(",");
+
                 String nextLine = sc2.nextLine().replaceAll("\\{", "");
                 String description = line.split(":")[line.split(":").length-1].trim();
                 String name = getName(nextLine).trim();
@@ -45,7 +51,7 @@ public class Main {
                         String subcomponentname = lineHasASubcomponent(newLine, arr);
                         if (!subcomponentname.equals("")) {
                             //nothing in this dummy doccomponent we're using to search for the actual component actually matters except name, as per the equals method in doccomponent
-                            arr.get(arr.indexOf(new DocComponent(name, description, nextLine,true))).addSubComponent(subcomponentname);
+                            arr.get(arr.indexOf(new DocComponent(name, description, nextLine,true, input, output))).addSubComponent(subcomponentname);
                         }
                     }
                 }
@@ -96,21 +102,24 @@ class DocComponent implements Comparable<DocComponent>{
     public String description;
     public ArrayList<String> subcomponents;
     public String lineOfCode;
+    public String[] input;
+    public String[] output;
     public boolean type; //true for component, false for function
 
     //generated text
-    public String anchor;
     public String typeText;
     public String header;
     public String code;
     public String[] subcomponentlinks;
 
-    public DocComponent(String name, String description, String lineOfCode, boolean type) {
+    public DocComponent(String name, String description, String lineOfCode, boolean type, String[] input, String[] output) {
         this.name = name;
         this.description = description;
         this.lineOfCode = lineOfCode;
         this.type = type;
         this.subcomponents = new ArrayList<>();
+        this.input = input;
+        this.output = output;
     }
 
     public void addSubComponent(String subcomponents) {
@@ -118,8 +127,6 @@ class DocComponent implements Comparable<DocComponent>{
     }
 
     public void generateText() {
-        anchor = "(##"+name+")";
-
         header = "## " + name;
         code = "```javascript\n" + lineOfCode + "\n```";
         typeText = (type) ? ("_Component_") : ("_Function_");
@@ -131,7 +138,12 @@ class DocComponent implements Comparable<DocComponent>{
 
     @Override
     public int compareTo(DocComponent docComponent) {
-        return docComponent.subcomponents.size()-this.subcomponents.size();
+        if (!this.type && docComponent.type)
+            return -1;
+        else if (this.type && !docComponent.type)
+            return 1;
+        else
+            return docComponent.subcomponents.size()-this.subcomponents.size();
     }
 
     @Override
@@ -140,11 +152,22 @@ class DocComponent implements Comparable<DocComponent>{
 
         StringBuilder output = new StringBuilder();
 
-        //output.append(anchor+"\n");
         output.append(header+"\n");
+        output.append(typeText+"\n");
         output.append(code+"\n\n");
         output.append(description+"\n\n");
-        output.append("Contains: " + "\n");
+        output.append("**Input: **");
+        for (String s : this.input) {
+            output.append(" " + s.trim());
+        }
+        output.append("\n");
+        output.append("**Output**");
+        for (String s : this.output) {
+            output.append(" " + s.trim());
+        }
+        output.append("\n");
+        if (subcomponentlinks.length>0)
+            output.append("Contains: " + "\n");
         for (String s : subcomponentlinks) {
             output.append(s+"\n");
         }

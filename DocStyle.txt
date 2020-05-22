@@ -1,0 +1,24 @@
+THIS IS THE STYLE YOU WANT TO FOLLOW WHEN WRITING COMMENTS
+There should be three lines of comments preceding the declaration of the function or component.
+The first line begins "DOC" and is followed immediately by either "Component: " or "Function: " depending on which it is.
+This is then followed by a description overview of what the item is, and what it does.
+The next line begins "Input: " and is followed by a list of the names items that are passed in as input, separated by commas. Put "None" if none. Add " (optional)" if an item isn't required.
+The line after begins "Output: " and is followed by what is returned.
+For components, this is a "JSXElement".
+For functions, it's the data-type of the returned item
+
+For all data-types, we'll be using Java naming conventions, so String, char, int, etc.
+
+An example for components (those things that return JSX HTML elements that get rendered):
+//DOC: Component: This component renders a single course button in the sidebar that, when clicked, changes the main panel to display that course.
+//Input: name, active, changeActiveCourse
+//Output: JSXElement
+function CourseListItem(props) {
+
+An example for functions (input and output logic):
+//DOC: Function: This function takes Converts the class code passed into the function into the actual English name of the course
+//Input: classcode
+//Output: String
+function codeToName(classcode) {
+
+To use this documentation generator, paste the contents of index.js into input.txt, and run Main.java. The output is README.md.
